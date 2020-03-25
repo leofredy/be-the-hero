@@ -1,0 +1,96 @@
+CONCEITO DE PROPRIEDADES
+	1. Imagine que temos um Header.js na nossa pasta src da nossa aplicação que vai ser aplicado a nossa página
+	os componentes devem ter a primeira letra maiuscula 'H', vai ser importado o React
+
+
+	2. Vamos criar uma function chamada Header() que vai retornar HTML.
+		ex:
+		
+		import React from 'react';
+		
+		export default function Header()
+		{
+			return (
+				<header>
+					<h1>Be The Hero</h1>
+				</header>
+			);
+		}
+
+	3. No arquivo App.js vamos importar o arquivo Header.js.
+		ex:
+
+		import React from 'react';
+
+		import Header from './Header';
+		
+		function App()
+		{
+			return (
+				<header/>
+			);
+		}
+
+		É possivel ver que foi criado uma tag do tipo header no html la do browser
+
+----------------------------------------------------------- PROPRIEDADES -----------------------------------------------
+	
+	4. Aplicando conceito de PROPRIEDADES. Imagine que fosse um h1 constomizado por página, poderiamos ter entao:
+		ex: No arquivo App.js vamos passar uma propriedade em header com o texto para exbir no h1 no Header.js
+
+		import React from 'react';
+
+		import Header from './Header';
+		
+		function App()
+		{
+			return (
+				<header title="Semana OmniStack"/>
+			);
+		}
+
+	5. Agora precisamos recuperar essa propriedade no App.js no arquivo Header.js. Vamos passar como parametro
+	na função Header usando a paralavra reservada do react 'props'.
+		ex:
+
+		import React from 'react';
+		
+		export default function Header(props)
+		{
+			return (
+				<header>
+					<h1> { props.title } </h1>
+				</header>
+			);
+		}
+	Sempre que for injetado uma variavel do JS ela tem que esta entre ' { } '.
+
+	Podemos usar também uma outra propriedade.
+		 ex: No arquivo App.js vamo escrever normalmente, como se fosse html normal
+
+		import React from 'react';
+
+		import Header from './Header';
+		
+		function App()
+		{
+			return (
+				<header>
+					Semana OmniStack
+				<header/>
+			);
+		}
+		
+		E no arquivo Header.js vamos usar a pro:
+
+
+		import React from 'react';
+		
+		export default function Header({ children })
+		{
+			return (
+				<header>
+					<h1>{ children }</h1>
+				</header>
+			);
+		}

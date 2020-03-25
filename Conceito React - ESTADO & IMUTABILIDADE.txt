@@ -1,0 +1,41 @@
+CONCEITO DE ESTADO
+
+VAMOS IMAGINAR QUE PRECISAMOS MUDAR CERTO TEXTO HTML CONFORME UMA AÇÃO, MAS SE USARMOS UMA VARIÁVEL COMUM NÃO
+FUNCIONA, ENTÃO VAMOS APLICAR O CONCEITO DE ESTADO INVÉS DE UMA VARIAVEL, PARA ISSO TEM QUE IMPORTAR useState
+
+
+
+CONCEITO USESTATUS
+
+useState RETORNA UM ARRAY DE 2 POSICOES A PRIMEIRA A VARIAVEL A SEGUNDA A FUNÇÃO DE TROCAR O VALOR = useStates(0);
+O ZERO (0) É O VALOR QUE ESTÁ INICIALIZANDO A VARIAVEL counter
+
+
+
+EX: ARQUIVO ' App.js '
+
+	import React, { useState } from 'react';
+	import Header from './Header';
+
+	function App()
+	{
+		const [counter, setCouonter] = useState(0);
+		
+		function increment()
+		{
+			setCounter(counter + 1);
+			
+		}
+
+		return(
+			<div>
+				<Header> Contador: </Header>
+				<button onClick={ increment }> Incrementar</button>
+			</div>
+		);
+			
+	}
+
+
+export default App;
+	
